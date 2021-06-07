@@ -14,12 +14,15 @@ const ListProperty = () =>{
         room:'',
         bath:'',
         area:'',
+        city:'',
+        state:'',
+        country:'',
         agentId:'',
         formData:''
         
         
     })
-    const {type,address,overview,price,bed,room,bath,area,agentId,photos,formData} = values
+    const {type,address,overview,price,bed,room,bath,area,agentId,photos,formData,city,state,country} = values
   const {token, agent}  = authCheck() 
     const handleChange = name => ( e)  =>{
         e.preventDefault()
@@ -41,6 +44,9 @@ const ListProperty = () =>{
      formData.append('room',room)
      formData.append('bath',bath)
      formData.append('agent',agentId)
+     formData.append('city',city)
+     formData.append('state',state)
+     formData.append('country',country)
      formData.append('area',area)
     
      for (let i = 0; i < photos.length; i++) {
@@ -65,6 +71,9 @@ const ListProperty = () =>{
             <input name='photos' type='file' onChange={handleChange('photos')} multiple/>
             <input value={type} type='text' onChange={handleChange('type')} placeholder='type'/>
             <input value={address} type='text' onChange={handleChange('address')} placeholder='address'/>
+            <input value={city} type='text' onChange={handleChange('city')} placeholder='city'/>
+            <input value={state} type='text' onChange={handleChange('state')} placeholder='state'/>
+            <input value={country} type='text' onChange={handleChange('country')} placeholder='country'/>
             <input value={overview} type='text' onChange={handleChange('overview')} placeholder='overview'/>
             <input value={price} type='number' onChange={handleChange('price')} placeholder='price'/>
             <input value={bed} type='number' onChange={handleChange('bed')} placeholder='number of bed'/>
